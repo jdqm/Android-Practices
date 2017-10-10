@@ -20,7 +20,9 @@ import com.jdqm.ipcdemo.aidl.Book;
 import com.jdqm.ipcdemo.aidl.BookManagerService;
 import com.jdqm.ipcdemo.aidl.IBookManager;
 import com.jdqm.ipcdemo.aidl.INewBookArrivedListener;
+import com.jdqm.ipcdemo.binderpool.BinderPoolActivity;
 import com.jdqm.ipcdemo.messenger.MessengerService;
+import com.jdqm.ipcdemo.provider.ProviderActivity;
 
 import java.util.List;
 
@@ -39,6 +41,14 @@ public class MainActivity extends AppCompatActivity {
         ContentResolver contentResolver = getContentResolver();
         contentResolver.query(Uri.parse("content://com.jdqm.ipcdemo.Proveder"),
                 null, null, null, null);
+    }
+
+    public void providerActivity(View view) {
+        startActivity(new Intent(this, ProviderActivity.class));
+    }
+
+    public void binderPoolActivity(View view) {
+        startActivity(new Intent(this, BinderPoolActivity.class));
     }
 
     private class ClientHandler extends Handler {

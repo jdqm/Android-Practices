@@ -3,7 +3,7 @@
     package="com.jdqm.ipcdemo">
 
     <uses-permission android:name="jdqm.permission.ACCESS_BOOK_MANAGER" />
-    <uses-permission android:name="jdqm.permission.ACCESS_PROVIDER"/>
+    <uses-permission android:name="jdqm.permission.ACCESS_PROVIDER" />
 
     <permission
         android:name="jdqm.permission.ACCESS_BOOK_MANAGER"
@@ -23,11 +23,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".SecondActivity"
             android:process=":remote" />
-
         <activity
             android:name=".ThirdActivity"
             android:process="com.jdqm.ipcdemo.remote" />
@@ -35,14 +33,22 @@
         <service
             android:name=".messenger.MessengerService"
             android:process=":remote" />
-
         <service android:name=".aidl.BookManagerService" />
+        <service android:name=".binderpool.BinderPoolService"
+            android:process=":remote">
+            <intent-filter>
+                <action android:name="jdqm.intent.action.BINDER_POOL_LAUNCH" />
+            </intent-filter>
+        </service>
 
         <provider
             android:name=".provider.BookProvider"
             android:authorities="com.jdqm.ipcdemo.Proveder"
             android:permission="jdqm.permission.ACCESS_PROVIDER"
             android:process=":remote" />
+
+        <activity android:name=".provider.ProviderActivity" />
+        <activity android:name=".binderpool.BinderPoolActivity"></activity>
     </application>
 
 </manifest>

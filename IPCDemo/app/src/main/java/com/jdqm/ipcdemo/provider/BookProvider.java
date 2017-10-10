@@ -39,8 +39,8 @@ public class BookProvider extends ContentProvider {
         db.delete(DBOpenHelper.USER_TABLE_NAME, null, null);
         db.execSQL("insert into book values(1, 'java')");
         db.execSQL("insert into book values(2, 'C++')");
-        db.execSQL("insert into user values(3, '小明')");
-        db.execSQL("insert into user values(4, 'Jdqm')");
+        db.execSQL("insert into user values(3, '小明', 1)");
+        db.execSQL("insert into user values(4, 'Jdqm', 0)");
         return true;
     }
 
@@ -80,6 +80,8 @@ public class BookProvider extends ContentProvider {
         if (null == tableName) {
             throw new IllegalArgumentException("UnSupported Uri");
         }
+
+        //返回值是影响的行数
         int count = db.delete(tableName, selection, selectionArgs);
         if (count > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
@@ -93,6 +95,8 @@ public class BookProvider extends ContentProvider {
         if (null == tableName) {
             throw new IllegalArgumentException("UnSupported Uri");
         }
+
+        //返回值是影响的行数
         int row = db.update(tableName, values, selection, selectionArgs);
         if (row > 0) {
             getContext().getContentResolver().notifyChange(uri, null);
@@ -109,4 +113,5 @@ public class BookProvider extends ContentProvider {
         }
         return null;
     }
+
 }

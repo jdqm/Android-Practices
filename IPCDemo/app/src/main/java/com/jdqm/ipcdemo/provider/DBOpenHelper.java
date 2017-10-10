@@ -16,11 +16,11 @@ public class DBOpenHelper extends SQLiteOpenHelper {
 
     private static final int DB_VERSION = 1;
 
-    private static final String CREATE_BOOK_TABLE = "create table if not exit"
-            + BOOK_TABLE_NAME + "(_id integer primary key, name text)";
+    private static final String CREATE_BOOK_TABLE = "create table "
+            + BOOK_TABLE_NAME + " (_id integer primary key, name text)";
 
-    private static final String CREATE_USER_TABLE = "create table if not exit"
-            + USER_TABLE_NAME + "(_id integer primary key, name text, set int)";
+    private static final String CREATE_USER_TABLE = "create table "
+            + USER_TABLE_NAME + " (_id integer primary key, name text, sex int)";
 
 
     public DBOpenHelper(Context context) {

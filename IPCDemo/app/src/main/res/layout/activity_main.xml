@@ -42,4 +42,16 @@
         android:onClick="query"
         android:text="query" />
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="providerActivity"
+        android:text="providerActivity" />
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="binderPoolActivity"
+        android:text="binderPoolActivity" />
+
 </LinearLayout>
